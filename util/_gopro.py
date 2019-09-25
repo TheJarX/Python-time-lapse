@@ -4,6 +4,17 @@ import requests
 import time
 from util import _constants as _
 
+
+"""
+Connect with a WiFi network
+
+Args: 
+	wifi (str): WIFI or GOPRO, indicate wich wifi use.
+Returns:
+	Void
+Raises:
+	idk yet.
+"""
 def connect_wifi( wifi = 'WIFI' ):
 	from wireless import Wireless
 	
@@ -13,31 +24,24 @@ def connect_wifi( wifi = 'WIFI' ):
 	if wifi == 'WIFI':
     		W.connect(ssid=_.WIFI_SSID, password=_.WIFI_PASS)
 	elif wifi == 'GOPRO':
-    		W.connect(ssid=_.GOPRO_WIFI, password=_.GOPRO_PASS)    	
+    		W.connect(ssid=_.GOPRO_WIFI, password=_.GOPRO_PASS)
+	else:
+			print('No option!')
+			return False
 
 """
-Connect the camera, will return the objet or False
+Connect the camera, will return the object, it can be NoneType
 """
 def connect_camera():
 	from goprocam import GoProCamera, constants
 	connect_wifi('GOPRO')
-	#if wf:
 	time.sleep(20)
-	#try:
-	time.sleep(5)
 	gp = GoProCamera.GoPro(mac_address=_.DEFAULT_MAC)
-	return gp;
-	#except TypeError:
-	#	tl.send_alert()
-	#	return False
-	#except:
-		#tl.send_alert( message = \
-		#'🆘*E️rror desconocido*, se requiere soporte técnico urgente!' )	
-	#	return False
-	#else:
-	#	#tl.send_alert()
-	#	return False
 	
+	gp.mode('0')
+	gp.mode('1')
+	return gp;
+
 """
 Take a photo every N seconds, by default __600 seconds__ (10 minutes)
 
@@ -53,18 +57,19 @@ Raises:
 """
 def time_lapse(gopro_instance, interval_secs = 600):
 	
-	time.sleep(interval_secs)
 	try:
 		img = gopro_instance.take_photo();
 		return img
 	except TypeError:
-		#tl.send_alert()
+		tl.send_alert()
 		return False
 	except:
-		#tl.send_alert( message = \
-		#'🆘*E️rror desconocido*, se requiere soporte técnico urgente!' )
+		tl.send_alert( message = \
+		'🆘*E️rror desconocido*, se requiere soporte técnico urgente!' )
 		return False
-
+	#time.sleep(interval_secs)
+	#time_lapse(gopro_instance, interval_secs)
+	
 
 """
 Encode the response of a url in base64
@@ -99,20 +104,19 @@ def send_data(img):
 
 	connect_wifi('WIFI')
 	time.sleep(20)
-	if True:
-		rq = requests.post(_.SERVER_URL, data = { 'b64_file' : img, 'original_name' : filename  })
-		#rq = requests.get(_.SERVER_URL)
-		
-		if rq.status_code == 200 and rq.reason == 'OK':
-			print(rq.text)
-			return True
-		else:
-			return rq
-	#connect_wifi('GOPRO')
-	#except:
-	#	pass
+	# TODO: Usar Async/Await e investigar mas al respecto
+	#rq = requests.post(_.SERVER_URL, data = { 'b64_file' : img, 'original_name' : filename  })
+	rq = requests.post(_.SERVER_URL, data = { 'original_name' : filename  })
+	
+	
+	if rq.status_code == 200 and rq.reason == 'OK':
+		print(rq.text)
+		return True
+	else:
+		return rq
 
-	#connect_wifi('GOPRO')
+	connect_wifi('GOPRO')
+
 	return False
 
 

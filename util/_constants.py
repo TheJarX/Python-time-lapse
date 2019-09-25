@@ -2,8 +2,8 @@
 DEFAULT_MAC = '06-41-69-af-76-1c'
 
 # WLAN network data
-WIFI_SSID = 'ALTAMIRANO'
-WIFI_PASS = 'Akemy 2019'
+WIFI_SSID = 'OLO_58AA'
+WIFI_PASS = 'GJ5PFc37x3'
 
 #GoPro network data
 GOPRO_WIFI = 'GP24818497'
