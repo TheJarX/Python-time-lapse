@@ -1,5 +1,4 @@
 from flask import Flask, request, render_template, redirect,json
-#import json
 
 app = Flask(__name__)
 

@@ -16,7 +16,7 @@ DAILY_DIR = './img/{}'.format( dt.now().strftime('%d-%m-%Y') )
 BASE_FILENAME = 'GOPRO-{}{}.png'.format( dt.now().strftime('%H%M%S'), \
     CURRENT_MS )
 
-
+    
 
 """
 Save the image from a base 64 encoded String

@@ -1,20 +1,27 @@
+""" 
+Use this document to declare the required constants. 
+
+! Important: Rename this file to "_constants.py" (remove "_template")
+
+"""
+
 #This is the MAC address of your GoPro, will not be unique for all GoPro models
-DEFAULT_MAC = '06-41-69-af-76-1c'
+DEFAULT_MAC = ''
 
 # WLAN network data
-WIFI_SSID = 'OLO_58AA'
-WIFI_PASS = 'GJ5PFc37x3'
+WIFI_SSID = ''
+WIFI_PASS = ''
 
 #GoPro network data
-GOPRO_WIFI = 'GP24818497'
-GOPRO_PASS = 'tennis3418'
+GOPRO_WIFI = ''
+GOPRO_PASS = ''
 
-SERVER_URL = 'http://127.0.0.1:5000/upload-image'
+SERVER_URL = ''
 
 #TWILIO
-SID_TWILIO = 'AC6d97b5aba62d91b7eb038bd18aaf5a93'
-TOKE_TWILIO = '9549a83cb99bb61f9c634affb29cd4fb'
-DEFAULT_TELF = '+51951270619'
+SID_TWILIO = ''
+TOKE_TWILIO = ''
+DEFAULT_TELF = ''
 
 #TIME
 
@@ -27,6 +34,7 @@ NOW = NOW[1]
 NOW = ' '.join(NOW.split(':')).split(' ')
 NOW  = dtsu.time(int(NOW[0]),int(NOW[1]),int(NOW[2]) )
 SLEEP_TIME = dtsu.time(16,40,0)
+
 
 
 

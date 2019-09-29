@@ -5,3 +5,8 @@ wifi_test.py
 img/
 util/__pycache__
 util/main.py
+util/_constants.py
+util/_server.py
+run.py
+test_req.py
+config.txt

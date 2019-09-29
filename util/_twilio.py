@@ -1,7 +1,9 @@
-account_sid = 'AC6d97b5aba62d91b7eb038bd18aaf5a93' 
-auth_token = '9549a83cb99bb61f9c634affb29cd4fb' 
+from util import _constants as _
 
-def send_alert( message = ' ⚠️ *Error* al conectarse con la GoPro', telf = '+51951270619' ):
+account_sid = _.SID_TWILIO
+auth_token = _.TOKEN_TWILIO
+
+def send_alert( message = ' ⚠️ *Error* al conectarse con la GoPro', telf = _.DEFAULT_TELF ):
 	from twilio.rest import Client 
 	from wireless import Wireless
 	from util import _constants as _

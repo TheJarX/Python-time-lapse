@@ -6,9 +6,10 @@
 
 ## Requirements
 
-This project uses:
+> developed in Python 3
 
-* Python 3
+Required modules:
 * [goprocam module by KonradIT] (https://github.com/KonradIT/gopro-py-api)
 * wireless module
+* Twilio 
 
