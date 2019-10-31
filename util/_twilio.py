@@ -1,6 +1,6 @@
 from twilio.rest import Client
 from wireless import Wireless
-from _wifi import WifiCtrl
+from util._wifi import WifiCtrl
 import time
 
 
@@ -10,9 +10,9 @@ class Twilio:
 		pass
 	
 	def send_alert(self, message = '⚠️ *Error* al conectarse con la GoPro'):
-		import _constants as _
+		from util import _constants as _
 		alert_msg = message
-		w = WifiCtrl(ssid = _.WIFI_SSID, password = _.WIFI_PASS)
+		w = WifiCtrl()
 		w.connect()
 
 		time.sleep(15)

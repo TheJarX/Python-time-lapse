@@ -56,7 +56,7 @@ def connect_camera():
     gp.power_on()
     gp.mode('0')
     gp.mode('1')
-    return gp;
+    return gp
 
 def gp_powerOff(gp):
     """ 
@@ -94,11 +94,12 @@ def _take_photo(gopro_instance, interval_secs = 600):
     	  img = gopro_instance.take_photo()
     	  return img
     except TypeError:
-       tl.send_alert()
+        tl.send_alert()
         return False
     except:
-       tl.send_alert( message = \
-       '🆘*E️rror desconocido*, se requiere soporte técnico urgente!' )
+        tl.send_alert( 
+            message = '🆘*E️rror desconocido*, se requiere soporte técnico urgente!' 
+            )
         return False
     #time.sleep(interval_secs)
     #time_lapse(gopro_instance, interval_secs)

@@ -1,5 +1,4 @@
 
-#from goprocam import GoProCamera, constants
 from util import _gopro as ugp
 from util import  _server as usv
 from util import  _twilio as utl
@@ -51,6 +50,7 @@ def main():
    #     exit()
 
 
-main()
+if __name__ = '__main__':
+    main()
     
             
