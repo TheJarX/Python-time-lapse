@@ -16,7 +16,6 @@ class GoproUtil:
             w.connect()
             time.sleep(20)
             gp = GoProCamera.GoPro(mac_address = _.DEFAULT_MAC, debug=False)
-            # gp.power_on()
             gp.mode('0')
             gp.mode('1')
             return gp
@@ -33,7 +32,6 @@ class GoproUtil:
                 self.delete_last_media()
                 time.sleep(12)
                 return 1
-            #return 1
             else:
                 gp = self.connect_camera()
                 
@@ -67,22 +65,17 @@ class GoproUtil:
     def send_data(self,img):
         """  Send the image to the server """
         """
-    Send the last media data from the gopro to the cloud remote server after take a photo
-
-    Args:
-        img (str) : The image url, response of __gopro.take_photo()__
-    Returns:
-        True if the request success or False if not, or request info. 
-
-    Raises:
-
-    """
+        Args:  
+            img (str) : The image url, response of __gopro.take_photo()__
+        Returns:
+            True if the request success or False if not, or request info. 
+        Raises:
+        """
         from util._wifi import WifiCtrl
         import datetime
 
         filename = img.split('/')
         filename = str(self.current_ms) + filename[ len(filename)-1 ]
-        # print(filename)
         img = self.get_as_base64(img)
 
         w = WifiCtrl()
@@ -94,17 +87,14 @@ class GoproUtil:
         
         
         if rq.status_code == 200 and rq.reason == 'OK':
-            # print(rq.text)
             self.delete_last_media()
             time.sleep(12)
             return True
         else:
             self.send_alert(msg='⚠️ *ERROR* no se ha podido \
                    establecer comunicación con el servidor! ')
-            # print(rq.text)
             print("Error: {}".format(rq))
             self.send_data(img)
-        # time.sleep(20)
         return False
 
     def send_alert(self, msg = False):

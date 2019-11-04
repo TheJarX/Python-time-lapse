@@ -21,8 +21,7 @@ class WifiCtrl:
         if not self.error:
             w = Wireless()
             w.interface()
-            res = w.connect(ssid = self.ssid, password = self.password)
-            # print(res)
+            w.connect(ssid = self.ssid, password = self.password)
             return True
         else:
             return False
