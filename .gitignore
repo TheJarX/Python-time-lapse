@@ -1,12 +1,9 @@
-test.py
-tlio.py
-wifi_test.py
+.env
+venv
 *.save
 img/
-util/__pycache__
-util/main.py
+*/__pycache__
 util/_constants.py
-util/_server.py
-run.py
-test_req.py
-config.txt
+
+# MAC junk
+*/.DS_Store

@@ -1,0 +1,28 @@
+#This is the MAC address of your GoPro, might not be the same for all GoPro models
+DEFAULT_GOPRO_MAC=
+
+# WLAN network data
+WIFI_SSID=
+WIFI_PASS=
+
+#GoPro network data
+GOPRO_WIFI=
+GOPRO_PASS=
+
+SERVER_URL=
+
+#TWILIO
+TWILIO_SID=
+TWILIO_TOKEN=
+DEFAULT_PHONE=
+
+# use the time like this HOURS:MINUTES:SECONDS
+# Ex. 16:40:10
+SLEEP_TIME='18:00:00'
+
+# 600 secs or 10 minutes
+SHOOT_INTERVAL=600
+
+
+
+
